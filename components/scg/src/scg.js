@@ -495,7 +495,6 @@ SCg.Editor.prototype = {
             }, 1);
 
             const checkEnterValue = async (text) => {
-                console.log("checkEnterValue");
                 let linkAddrs = await window.scClient.getLinksByContents([text]);
                 if (!linkAddrs.length) return;
 
@@ -515,7 +514,6 @@ SCg.Editor.prototype = {
             }
 
             const wrapperChangeApply = async (obj, input, self) => {
-                console.log("wrapperChangeApply");
                 const addrNodeEnterValue = await checkEnterValue(input[0].value);
                 if (obj.text !== input.val() && !self._selectedIdtf && !addrNodeEnterValue) {
                     self.scene.commandManager.execute(new SCgCommandChangeIdtf(obj, input.val()));
@@ -589,8 +587,7 @@ SCg.Editor.prototype = {
             // process controls
             $(container + ' #scg-change-idtf-apply').click(async function () {
                 const obj = self.scene.selected_objects[0];
-                if (!self._selectedIdtf) self._selectedIdtf = input.val();
-                wrapperChangeApply(obj, self._selectedIdtf).then(stop_modal);
+                wrapperChangeApply(obj, input, self);
             });
             $(container + ' #scg-change-idtf-cancel').click(function () {
                 stop_modal();
