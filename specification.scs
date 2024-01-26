@@ -18,6 +18,6 @@ sc_web
     => nrel_installation_text: [pip3 install -r requirements.txt && npm install](* <- lang_en;; *);
     => nrel_installation_script: [/scripts/build_sc_web.sh](* <- lang_en;; *);
 
-    => nrel_component_address: [https://github.com/ostis-ai/sc-web] (* <- concept_github_url;; *);
+    => nrel_component_address: [https://github.com/MakarenkoAI/sc-web] (* <- concept_github_url;; *);
     => nrel_installation_method: ... (* <- concept_component_dynamically_installed_method;; *);;
 *];;
